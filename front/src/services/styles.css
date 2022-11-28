@@ -1,0 +1,43 @@
+
+  body {
+    background: linear-gradient(-45deg,#3a4c53, rgb(50, 73, 72),rgb(227, 234, 236));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    border-radius: 5px;
+  }
+  
+  th{  
+    
+    text-align: left;
+    padding: 8px;
+  
+  }
+  
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+  thead{
+    background-color: rgb(100, 224, 160);
+  }
+  
+  tr:hover {background-color: #D6EEEE;}
+  
+  th:first-of-type {
+    border-top-left-radius: 5px;
+  }
+  th:last-of-type {
+    border-top-right-radius: 5px;
+  }
+
+  .container{
+    margin-top: 5%;
+  }
+  
