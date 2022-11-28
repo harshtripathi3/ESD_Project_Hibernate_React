@@ -2,6 +2,7 @@ package com.academia.payment.controller;
 
 
 import com.academia.payment.bean.Comp;
+import com.academia.payment.bean.HR;
 import com.academia.payment.dao.CompDAO;
 import com.academia.payment.dao.impl.CompDAOImpl;
 import jakarta.ws.rs.*;
@@ -35,6 +36,16 @@ public class CompController {
         List<Comp> comps = compDAO.getComList();
         System.out.printf("Hello world");
         return Response.status(200).entity(comps).build();
+    }
+    @GET
+    @Path("getHRid/{comp_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get_HR_id(@PathParam("comp_id") Long comp_id){
+        List<HR> hrss=compDAO.getcompHR(comp_id);
+        if(hrss==null)
+            return Response.status(401).build();
+        else
+            return Response.status(200).entity(hrss).build();
     }
 
 }

@@ -67,4 +67,5 @@ public class HR {
     public void setComp_id(Comp comp_id) {
         this.comp_id = comp_id;
     }
+
 }

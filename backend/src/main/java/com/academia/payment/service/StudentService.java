@@ -14,7 +14,6 @@ public class StudentService {
             return null;
 
         // Setting billList to null to avoid cyclic dependency issues
-        loggedInStudent.setBillList(null);
 
         return loggedInStudent;
     }

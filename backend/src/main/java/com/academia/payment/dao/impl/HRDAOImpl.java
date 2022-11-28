@@ -1,7 +1,8 @@
 package com.academia.payment.dao.impl;
 
-import com.academia.payment.bean.Comp;
+
 import com.academia.payment.bean.HR;
+import com.academia.payment.bean.Student;
 import com.academia.payment.dao.HRDAO;
 import com.academia.payment.util.HibernateSessionUtil;
 import jakarta.persistence.Query;
@@ -86,5 +87,28 @@ public class HRDAOImpl implements HRDAO {
             System.out.print(exception.getLocalizedMessage());
         }
         return false;
+    }
+
+    @Override
+    public HR getHR(Long hr_id) {
+        try (Session session = HibernateSessionUtil.getSession();){
+            List<Object> result = new ArrayList<Object>(
+                    session.createQuery(
+                                    "FROM HR r inner join Comp WHERE r.hr_id = :h"
+                            )
+                            .setParameter("h", hr_id)
+                            .list()
+            );
+            // If no valid Student found, return null so that login failure is understood
+            if (result.size() == 0)
+                return null;
+            else
+                return (HR) result.get(0);
+        }
+        catch (HibernateException exception) {
+            System.out.print(exception.getLocalizedMessage());
+        }
+
+        return null;
     }
 }

@@ -1,6 +1,7 @@
 package com.academia.payment.dao.impl;
 
 import com.academia.payment.bean.Comp;
+import com.academia.payment.bean.HR;
 import com.academia.payment.dao.CompDAO;
 import com.academia.payment.util.HibernateSessionUtil;
 import org.hibernate.HibernateException;
@@ -48,4 +49,23 @@ public class CompDAOImpl implements CompDAO {
         }
     }
 
+    @Override
+    public List<HR> getcompHR(Long comp_id) {
+        try(Session session=HibernateSessionUtil.getSession()){
+            List<HR> hrslist =new ArrayList<>();
+            for(final Object hrss:session.createQuery("from HR where comp_id.comp_id=:h")
+                    .setParameter("h",comp_id).list()){
+                hrslist.add((HR) hrss);
+            }
+            if (hrslist.size() == 0)
+                return null;
+            else
+                return hrslist;
+        }
+        catch (HibernateException exception) {
+            System.out.println(exception.getLocalizedMessage());
+        }
+
+        return null;
+    }
 }

@@ -8,7 +8,7 @@ public class Comp {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long comp_id;
-    @Column(nullable = false)
+    @Column(unique=true,nullable = false)
     private String comp_name;
     private String comp_add;
 

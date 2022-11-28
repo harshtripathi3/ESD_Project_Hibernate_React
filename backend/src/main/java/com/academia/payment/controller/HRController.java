@@ -1,6 +1,5 @@
 package com.academia.payment.controller;
 
-import com.academia.payment.bean.Comp;
 import com.academia.payment.bean.HR;
 import com.academia.payment.dao.HRDAO;
 import com.academia.payment.dao.impl.HRDAOImpl;
@@ -54,6 +53,14 @@ public class HRController {
             return Response.status(200).entity("Success").build();
         else
             return Response.status(400).build();
+    }
+
+    @GET
+    @Path("getHR/{hr_id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getHR(@PathParam("hr_id") Long h_id) {
+        HR hr = hrdao.getHR(h_id);
+        return Response.ok().entity(hr).build();
     }
 
 }

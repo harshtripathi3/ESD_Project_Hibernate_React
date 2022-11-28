@@ -28,9 +28,6 @@ public class Student {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
-    @JsonIgnore // Doesn't seem to work in this case
-    private List<Bill> billList;
 
     public Student() {
     }
@@ -90,12 +87,5 @@ public class Student {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public List<Bill> getBillList() {
-        return billList;
-    }
-
-    public void setBillList(List<Bill> billList) {
-        this.billList = billList;
-    }
+    
 }
