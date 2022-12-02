@@ -2,7 +2,6 @@ package com.academia.payment.dao.impl;
 
 
 import com.academia.payment.bean.HR;
-import com.academia.payment.bean.Student;
 import com.academia.payment.dao.HRDAO;
 import com.academia.payment.util.HibernateSessionUtil;
 import jakarta.persistence.Query;
@@ -59,7 +58,7 @@ public class HRDAOImpl implements HRDAO {
         try (Session session = HibernateSessionUtil.getSession()) {
             Transaction t = session.beginTransaction();
 
-            Query q = session.createQuery("update HR set comp_id=:c, email=:e where hr_id=:ID");
+            Query q = session.createQuery("update HR set comp_ID=:c, email=:e where hr_id=:ID");
             q.setParameter("ID", hr_id);
             q.setParameter("c", HRobj.getComp_id());
             q.setParameter("e",HRobj.getEmail());

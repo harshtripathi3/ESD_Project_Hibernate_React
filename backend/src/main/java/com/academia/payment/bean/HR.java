@@ -1,6 +1,9 @@
 package com.academia.payment.bean;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table
@@ -17,8 +20,11 @@ public class HR {
     private Long con;
 
     @OneToOne(cascade = CascadeType.ALL)
+    //@Cascade({org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
     @JoinColumn(name = "comp_id")
-    private Comp comp_id;
+    //@Fetch(value = FetchMode.SUBSELECT)
+    private Comp comp_ID;
+
 
     public Long getHr_id() {
         return hr_id;
@@ -61,11 +67,11 @@ public class HR {
     }
 
     public Comp getComp_id() {
-        return comp_id;
+        return comp_ID;
     }
 
     public void setComp_id(Comp comp_id) {
-        this.comp_id = comp_id;
+        this.comp_ID = comp_id;
     }
 
 }

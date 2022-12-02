@@ -11,4 +11,5 @@ public interface CompDAO {
 
     List<Comp> getComList();
     List<HR> getcompHR(Long comp_id);
+    Boolean delComp(Long comp_id);
 }

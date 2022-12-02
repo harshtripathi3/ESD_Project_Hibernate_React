@@ -48,4 +48,15 @@ public class CompController {
             return Response.status(200).entity(hrss).build();
     }
 
+    @DELETE
+    @Path("/del/{comp_id}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteHR(@PathParam("comp_id") Long comp_id) {
+        Boolean d= compDAO.delComp(comp_id);
+        if (d)
+            return Response.status(200).entity("Success").build();
+        else
+            return Response.status(400).build();
+    }
+
 }

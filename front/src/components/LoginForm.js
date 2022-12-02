@@ -28,43 +28,6 @@ const LoginForm = ({ startLogin }) => {
 
   // Typically keep id attributes on your HTML elements so that they can be styled using CSS
   return (
-    // <div className='container'>
-    //   <div className='row'>
-    //     <div className='col-md-6 offset-md-3 border rounded p-4 mt-2 shadow'>
-    //       <h2 className='text-center m-4'>Login</h2>
-
-    //       <form onSubmit={handleLogin} id='login-form'>
-    //       <div className='mb-3'>
-    //         <input
-    //           type='email'
-    //           placeholder='Email'
-    //           value={email}
-
-    //           onChange={event => setEmail(event.target.value)}
-    //           id='email'
-    //           required
-    //         />
-    //         </div>
-    //         <div className='mb-3'>
-    //         {/* Same as the above username input, except this one has the type password */}
-    //         <input
-    //           type='password'
-    //           placeholder='Password'
-    //           value={password}
-    //           onChange={event => setPassword(event.target.value)}
-    //           id='password'
-    //           required
-    //         />
-    //         </div>
-    //         {/* Submit button for the form */}
-    //         <button type='submit' id='login-submit' className='btn btn-outline-primary'>LOGIN</button>
-    //       </form>
-    //     </div>
-    //   </div>
-    // </div>
-
-
-
 
     <div className='container'>
       <div className='row'>
@@ -103,6 +66,9 @@ const LoginForm = ({ startLogin }) => {
         </div>
 
       </div>
+      <div className="footer">
+                <p>Made with ❤️ and 🧑‍💻 by <i>Harsh Tripathi</i></p>
+            </div>
     </div>
 
   )

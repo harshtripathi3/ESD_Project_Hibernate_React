@@ -10,6 +10,7 @@ import EditUser from './services/EditUSer';
 import ViewUser from './services/ViewUser';
 import ViewOrg from './services/ViewOrg';
 import CompHR from './services/CompHR';
+import Addorg from './services/Addorg';
 
 const App = () => {
   // user state will store the logged in user object, if no login has been done yet then it will be null
@@ -44,11 +45,13 @@ const App = () => {
       window.localStorage.setItem('loggedInUser', JSON.stringify(userObject))
       notificationHandler(`Logged in successfully as ${userObject.firstName}`, 'success')    
       setBills([])
+      
     }
     catch (exception) {
       notificationHandler(`Log in failed, check username and password entered`, 'error')
     }
   }
+  
 
 
   // Effect Hook that parses the local storage for 'loggedInUser' and sets the "user" state if a valid match is found
@@ -83,12 +86,13 @@ const App = () => {
         <NavBar user={user} setUser={setUser}/>
       } 
       
-      {
+    {
       user!==null && 
         <Router>
           <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Home/>} /> 
           <Route exact path="/adduser" element={<AddUser />} />
+          <Route exact path="addorg" element={<Addorg/>}/>
           <Route exact path="/vieworg" element={<ViewOrg />} />
           <Route exact path="/orghr/:id" element={<CompHR />} />
           <Route exact path="/edituser/:id" element={<EditUser />} />

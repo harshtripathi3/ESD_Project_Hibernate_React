@@ -94,9 +94,11 @@ export default function AddUser() {
                             Contact
                         </label>
                         <input
-                            type={"text"}
+                            type="tel"
                             className="form-control"
-                            placeholder='Enter your Email'
+                            pattern="[0-9]{10}" 
+                            maxlength="10"
+                            placeholder='10 Digit Phone'
                             name="con"
                             value={con}
                             onChange={(e)=>onInputChange(e)}
@@ -110,11 +112,11 @@ export default function AddUser() {
                         <input
                             type={"text"}
                             className="form-control"
-                            placeholder='Enter your Email'
+                            placeholder='Enter Org Name'
                             name="comp_name"
                             value={comp_name}
                             onChange={(e)=>onInputChange(e)}
-                            required
+                            
                         />
                     </div>
                     <div className='mb-3'>
@@ -124,11 +126,11 @@ export default function AddUser() {
                         <input
                             type={"text"}
                             className="form-control"
-                            placeholder='Enter your Email'
+                            placeholder='Enter Org Address'
                             name="comp_add"
                             value={comp_add}
                             onChange={(e)=>onInputChange(e)}
-                            required
+                            
                         />
                     </div>
                     <button type='submit'  className='btn btn-outline-primary'>Submit</button>
@@ -136,6 +138,9 @@ export default function AddUser() {
                     </form>
                 </div>
 
+            </div>
+            <div className="footer">
+                <p>Made with ❤️ and 🧑‍💻 by <i>Harsh Tripathi</i></p>
             </div>
         </div>
     );

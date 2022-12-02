@@ -87,6 +87,9 @@ export default function EditUser() {
                 </div>
 
             </div>
+            <div className="footer">
+                <p>Made with ❤️ and 🧑‍💻 by <i>Harsh Tripathi</i></p>
+            </div>
         </div>
     );
 }

@@ -57,9 +57,12 @@ export default function CompHR() {
 
                 </div>
             </div>
-            <Link className='btn btn-primary my-2' to={"/"}>Back to Home</Link>
+            <Link className='btn btn-primary my-2' to={"/vieworg"}>Back to Home</Link>
         </div>
         </div>
+        <div className="footer">
+                <p>Made with ❤️ and 🧑‍💻 by <i>Harsh Tripathi</i></p>
+            </div>
         </div>
   )
 }

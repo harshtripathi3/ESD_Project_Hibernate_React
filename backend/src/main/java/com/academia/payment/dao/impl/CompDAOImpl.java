@@ -4,6 +4,7 @@ import com.academia.payment.bean.Comp;
 import com.academia.payment.bean.HR;
 import com.academia.payment.dao.CompDAO;
 import com.academia.payment.util.HibernateSessionUtil;
+import jakarta.persistence.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -53,7 +54,7 @@ public class CompDAOImpl implements CompDAO {
     public List<HR> getcompHR(Long comp_id) {
         try(Session session=HibernateSessionUtil.getSession()){
             List<HR> hrslist =new ArrayList<>();
-            for(final Object hrss:session.createQuery("from HR where comp_id.comp_id=:h")
+            for(final Object hrss:session.createQuery("from HR where comp_ID.comp_id=:h")
                     .setParameter("h",comp_id).list()){
                 hrslist.add((HR) hrss);
             }
@@ -67,5 +68,24 @@ public class CompDAOImpl implements CompDAO {
         }
 
         return null;
+    }
+
+    @Override
+    public Boolean delComp(Long comp_id) {
+        try (Session session = HibernateSessionUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+//            Query query1=session.createQuery("DELETE FROM HR where comp_id=:Id");
+//            query1.setParameter("Id",comp_id);
+//            query1.executeUpdate();
+            Query query=session.createQuery("DELETE FROM Comp WHERE comp_id=:Id");
+            query.setParameter("Id", comp_id);
+            query.executeUpdate();
+            transaction.commit();
+            return true;
+
+        } catch (HibernateException exception) {
+            System.out.print(exception.getLocalizedMessage());
+        }
+        return false;
     }
 }

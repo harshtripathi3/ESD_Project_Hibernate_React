@@ -14,18 +14,19 @@ export default function ViewOrg() {
         setUsers(result.data);
     }
 
-    // const deleteUser = async (id) => {
-    //     await axios.delete(`http://localhost:8080/api/HR/del/${id}`)
-    //     loadUsers()
-    // }
+    const deletecomp = async (id) => {
+        await axios.delete(`http://localhost:8080/api/comp/del/${id}`)
+        loadUsers()
+    }
 
     return (
         
         <div className='container'>
-            {/* <Link className='btn btn-outline-light' to="/adduser">Add User</Link> */}
-
+            <h1>View All Register Organisations</h1>
+            <Link className='btn btn-outline-primary ' to="/addorg">Add Organisation</Link>
+            
             <div className='py-4'>
-                <table className="table border shadow table-light">
+                <table className="table table-warning shadow table-hover table-striped">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -47,7 +48,7 @@ export default function ViewOrg() {
                                         <Link className="btn btn-primary mx-2" to={`/orghr/${user.comp_id}`}>
                                             View
                                         </Link>
-                                        {/* <button className='btn btn-danger mx-2' onClick={() => deleteUser(user.comp_id)}>Delete</button> */}
+                                        <button className='btn btn-danger mx-2' onClick={() => deletecomp(user.comp_id)}>Delete</button>
                                     </td>
                                 </tr>
                             )
@@ -55,7 +56,10 @@ export default function ViewOrg() {
                         }
                     </tbody>
                 </table>
-
+                <Link className='btn btn-primary my-2' to={"/"}>Back to Home</Link>
+            </div>
+            <div className="footer">
+                <p>Made with ❤️ and 🧑‍💻 by <i>Harsh Tripathi</i></p>
             </div>
         </div>
     )

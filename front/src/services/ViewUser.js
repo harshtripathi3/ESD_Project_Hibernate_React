@@ -22,6 +22,7 @@ export default function ViewUser() {
     },[]);
 
     const loadUser=async()=>{
+        
         const result=await axios.get(`http://localhost:8080/api/HR/getHR/${id}`)
         setUsers(result.data)
     }
@@ -47,6 +48,9 @@ export default function ViewUser() {
             <Link className='btn btn-primary my-2' to={"/"}>Back to Home</Link>
         </div>
         </div>
+        <div className="footer">
+                <p>Made with ❤️ and 🧑‍💻 by <i>Harsh Tripathi</i></p>
+            </div>
         </div>
   )
 }

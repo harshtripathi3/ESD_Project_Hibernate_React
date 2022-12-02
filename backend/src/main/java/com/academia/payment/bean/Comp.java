@@ -1,6 +1,10 @@
 package com.academia.payment.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -11,6 +15,9 @@ public class Comp {
     @Column(unique=true,nullable = false)
     private String comp_name;
     private String comp_add;
+
+    public Comp() {
+    }
 
     public Long getComp_id() {
         return comp_id;

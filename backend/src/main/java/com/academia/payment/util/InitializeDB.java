@@ -1,11 +1,10 @@
 package com.academia.payment.util;
 
-import com.academia.payment.bean.Student;
-import com.academia.payment.dao.StudentDAO;
-import com.academia.payment.dao.impl.StudentDAOImpl;
+import com.academia.payment.bean.Employee;
+import com.academia.payment.dao.EmpDAO;
+import com.academia.payment.dao.impl.EmpDAOImpl;
 import org.hibernate.Session;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,43 +14,23 @@ import java.util.List;
 public class InitializeDB {
     public static void main(String[] args) {
 
-        List<List<String>> students = Arrays.asList(
-                Arrays.asList("MT2021059", "Jasvin", "James", "jasvin.james@iiitb.ac.in", "1234"),
-                Arrays.asList("MT2021078", "Monit", "Thakkar", "monit.thakkar@iiitb.ac.in", "1234"),
-                Arrays.asList("MT2021026", "Ashutosh", "Soni", "ashutosh.soni@iiitb.ac.in", "1234"),
-                Arrays.asList("MT2021118", "Sarika", "Vadodariya", "sarika.Vadodariya@iiitb.ac.in", "1234"),
-                Arrays.asList("MT2021087", "Niraj", "Gujarathi", "niraj.gujarathi@iiitb.ac.in", "1234")
+        List<List<String>> emps = Arrays.asList(
+                Arrays.asList("Micheal", "Scott", "mike.scott@office.com", "1234","Manager","path","Outreach"),
+                Arrays.asList("Jim", "Halpert", "jim.halpert@office.com", "1234","Co-Manager","path","Outreach"),
+                Arrays.asList("Dwight", "Schrute", "dwight.schrute@office.com", "1234","Ass. to Manager","path","Outreach")
         );
 
-        StudentDAO studentDAO = new StudentDAOImpl();
-//        BillDAO billDAO = new BillDAOImpl();
-//
-//        List<Bill> billList = new ArrayList<>();
-//
-//        for (List<Object> bill: bills) {
-//            Bill billObj = new Bill((String) bill.get(0), (Integer) bill.get(1), (String) bill.get(2));
-//            billList.add(billObj);
-//        }
+        EmpDAO empDAO = new EmpDAOImpl();
 
-        for (int i = 0; i < students.size(); i++) {
-            List<String> student = students.get(i);
-            Student studentObj = new Student(student.get(0), student.get(1), student.get(2), student.get(3), student.get(4));
-//
-//            // Set students of bills
-//            billList.get(i).setStudent(studentObj);
-//            billList.get(i+1).setStudent(studentObj);
-//            billList.get(i+2).setStudent(studentObj);
-//
-//            // Set billList of student
-//            studentObj.setBillList(Arrays.asList(billList.get(i), billList.get(i+1), billList.get(i+2)));
-//
-            studentDAO.createStudent(studentObj);
-//
-//            billDAO.createBill(billList.get(i));
-//            billDAO.createBill(billList.get(i+1));
-//            billDAO.createBill(billList.get(i+2));
-//        }
-            //Session session = HibernateSessionUtil.getSession();
+
+        for (int i = 0; i < emps.size(); i++) {
+            List<String> emp = emps.get(i);
+            Employee empObj = new Employee(emp.get(0), emp.get(1), emp.get(2), emp.get(3), emp.get(4),
+                    emp.get(5),emp.get(6));
+
+            empDAO.createemp(empObj);
+
+            Session session = HibernateSessionUtil.getSession();
         }
     }
 }
