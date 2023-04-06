@@ -4,6 +4,7 @@
 
 ## Working
 **This Project basically Includes the functionality in which a member from Outreach department can login and insert details of new organisation alog with it's HR.**
+
 Note:- Delete all the artifacts in .idea folder and build again.
 
 ## Tech Stack:
